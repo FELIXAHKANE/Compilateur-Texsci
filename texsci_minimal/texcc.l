@@ -9,18 +9,7 @@
 begin     "\\begin{texsci}"
 end       "\\end{texsci}"
 blankline "\\BlankLine"
-local     "\\Local"
-mbox      "\\mbox"
-integer   "\\Integer"
-boolean   "\\Boolean"
-real      "\\Real"
-leftarrow "\\leftarrow"
-dollar    "$"
-close     "\\;"
-printint "printInt"
-printtext "printText"
 id        [a-zA-Z_][a-zA-Z0-9_]*
-int       [0-9]+
 
 %%
 
@@ -35,13 +24,6 @@ int       [0-9]+
                     }
 <texsci>{blankline} { return BLANKLINE; 
                     }
-<texsci>{local}     { return LOCAL; 
-                    }
-"{"                 { return LBRACE;
-                    }
-"}"                 { return RBRACE;
-                    }
-
 
 <texsci>[{}]        { return yytext[0];
                     }
